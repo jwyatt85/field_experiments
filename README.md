@@ -1,6 +1,6 @@
 #### Basic Application for Political Field Experiments 
 
-* Update 9/3/15: Allows for sub-group analysis utilizing marginal effects.  
+* Update 4/11/16: Allows for sub-group analysis utilizing marginal effects.  
 
 * Calculates the ITT/CACE for a randomized controlled experiment
 * Randomizer: 
