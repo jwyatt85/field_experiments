@@ -27,7 +27,7 @@ shinyServer(function(input, output) {
                 ui = y_bar + 1.96*se,
                 li = y_bar - 1.96*se) %>%
       ggplot(aes(x=Z, y=y_bar)) + 
-      geom_pointrange(aes(ymin=li, ymax=ui), width=0.4, color="blue", fill="white", shape=22, size=1.5) + 
+      geom_pointrange(aes(ymin=li, ymax=ui, width = .04), color="blue", fill="white", shape=22, size=1.5) + 
       ylim(0, NA) +
       ggtitle("Difference Between Conditional Groups") + 
       xlab("Condition") + ylab("Average Outcome") +
