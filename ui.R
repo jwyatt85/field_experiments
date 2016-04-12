@@ -2,7 +2,7 @@ shinyUI(
   fluidPage(theme = "bootstrap2.css", 
             sidebarLayout(
               sidebarPanel(
-                h3("Analysis"),
+                h3("ITT Analysis"),
                 wellPanel("Upload a .CSV",
                           fileInput('file1', 'Choose CSV File',
                                     accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv')),

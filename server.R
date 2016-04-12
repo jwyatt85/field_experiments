@@ -457,9 +457,6 @@ output$sub.group.table <- renderTable({
   xtable(makeSubGroupTable())
 })
 
-?renderTable()
-
-
 
 
 }) #end of shiny server everything above ^^
