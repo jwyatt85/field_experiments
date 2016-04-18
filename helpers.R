@@ -159,3 +159,6 @@ is_binary <- function(x){
   return(all(x %in% c(0,1)))
 }
 
+
+
+#this is the section to add modeling section
