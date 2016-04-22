@@ -347,6 +347,33 @@ output$out_plot_subgroups <- renderPlot({
 
 
 
+#mapping
+output$maps <- renderPlot({
+  makemap()
+})
+
+makemap <- reactive({
+  expr = {
+    inFile2 <- input$mapcsv
+    if(is.null(inFile2)) return(NULL)
+  
+    dat2<- read.csv(inFile2$datapath)
+    dat2 <- na.omit(dat2)
+    if(length(names(dat2)) != 2){
+      stop("You can only have 2 columns: fips/stname and value")
+    }
+    
+    names(dat2) <- c("region", "value")
+    
+    my_map <- county_choropleth(dat2,
+                      title = "US 2012 County Population Estimates",
+                      legend = "Population")
+    
+    return(my_map)
+    }})
+
+
+
 # Sub-group analysis
 # Upload a Dataset
 output$Sub.DV <- renderUI({

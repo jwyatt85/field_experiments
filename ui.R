@@ -139,8 +139,16 @@ shinyUI(
                                    br(),
                                    tableOutput("sub.group.table")
                           ),
-                          tabPanel("Help/FAQ",
-                                   h3("FAQ", align= "center")
+                          tabPanel("Mapping",
+                                   h3("State/County Mapping", align= "center"),
+                                   br(),
+                                   h5("Directions: The CSV file must contain the county fips or state name (if developing state-level estimates) as the first column.  The second column must be the value to plot"),
+                                   wellPanel("Upload a .CSV",
+                                             fileInput('mapcsv', 'Choose CSV File',
+                                                       accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv')),
+                                             br(),
+                                             plotOutput("maps")
+                                   )
                           )
                         )
               )  

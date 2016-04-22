@@ -15,6 +15,12 @@ library(pander)
 library(scales)
 library(effects)
 library(lmtest)
+library(choroplethr)
+library(rgeos) 
+# library(UScensus2000tract)
+# library(UScensus2010)
+library(RColorBrewer)
+library(choroplethr)
 
 
 #function that returns the span MDE
