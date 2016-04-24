@@ -143,13 +143,17 @@ shinyUI(
                                    h3("State/County Mapping", align= "center"),
                                    br(),
                                    h5("Directions: The CSV file must contain the county fips or state name (if developing state-level estimates) as the first column.  The second column must be the value to plot"),
+                                   textInput("maptitle", label=h5("Title of the Map:"), value = "", width = NULL, placeholder = NULL),
+                                   textInput("maplegend", label=h4("Legend Title:"), value = "", width = NULL, placeholder = NULL),
+                                   radioButtons("mapcolor", label = h4("Choose a Color"),
+                                                choices = list("White - Blue" = "Blues", "Yellow - Red" = "YlOrRd", "Spectral" = "Spectral", "White - Green" = "Greens"), 
+                                                selected = NULL),
                                    wellPanel("Upload a .CSV",
                                              fileInput('mapcsv', 'Choose CSV File',
-                                                       accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv')),
-                                             br(),
-                                             br(),
-                                             plotOutput("maps")
-                                   )
+                                                       accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv'))
+                                   ),
+                                   br(),
+                                   plotOutput("maps")
                           )
                         )
               )  
