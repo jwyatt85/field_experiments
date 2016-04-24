@@ -147,6 +147,7 @@ shinyUI(
                                              fileInput('mapcsv', 'Choose CSV File',
                                                        accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv')),
                                              br(),
+                                             br(),
                                              plotOutput("maps")
                                    )
                           )
