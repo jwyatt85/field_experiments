@@ -375,14 +375,14 @@ makemap <- reactive({
                      title = maptitle,
                      legend = maplegend,
                      num_colors = 5,
-                     zoom = statezoom) + scale_fill_brewer(palette = color)
+                     zoom = statezoom) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
   }
   if(input$maptype == 'county'){
     my_map <- county_choropleth(dat2,
                                 title = maptitle,
                                 legend = maplegend,
                                 num_colors = 5,
-                                state_zoom = statezoom) + scale_fill_brewer(palette = color)
+                                state_zoom = statezoom) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
   }
   return(my_map)
     }})
