@@ -367,14 +367,24 @@ makemap <- reactive({
     color <- as.character(input$mapcolor)
     statezoom <- tolower(state.name)
     statezoom <- statezoom[-c(grep("alaska|hawaii", statezoom))]
+    maptitle <- as.character(input$maptitle)
+    maplegend <- as.character(input$maplegend)
     
+  if(input$maptype == 'state'){
+  my_map <- state_choropleth(dat2,
+                     title = maptitle,
+                     legend = maplegend,
+                     num_colors = 5,
+                     zoom = statezoom) + scale_fill_brewer(palette = color)
+  }
+  if(input$maptype == 'county'){
     my_map <- county_choropleth(dat2,
-                      title = input$maptitle,
-                      legend = input$maplegend,
-                      num_colors = 5,
-                      state_zoom = statezoom ) + scale_fill_brewer(palette = color)
-    
-    return(my_map)
+                                title = maptitle,
+                                legend = maplegend,
+                                num_colors = 5,
+                                state_zoom = statezoom) + scale_fill_brewer(palette = color)
+  }
+  return(my_map)
     }})
 
 
