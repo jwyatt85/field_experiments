@@ -364,6 +364,9 @@ makemap <- reactive({
     }
     
     names(dat2) <- c("region", "value")
+    dat2$region <- as.character(dat2$region)
+    dat2$value <- as.numeric(dat2$value)
+    
     color <- as.character(input$mapcolor)
     maptitle <- as.character(input$maptitle)
     maplegend <- as.character(input$maplegend)
@@ -373,7 +376,7 @@ makemap <- reactive({
   statezoomfinal <- statezoomfinal[-c(grep("alaska|hawaii", statezoomfinal))]
   }else{
   statezoomfinal <- tolower(unlist(strsplit(input$statezoom, "[,]")))
-  statezoomfinal <- stri_replace_all_fixed(statezoomfinal, " ", "")
+  statezoomfinal <- as.character(stri_replace_all_fixed(statezoomfinal, " ", ""))
   }
 
     
@@ -390,10 +393,11 @@ makemap <- reactive({
                                 state_zoom = statezoomfinal) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
   }
   if(input$maptype == 'zip'){
-      my_map <- zip_choropleth(dat2,
-                                  title = maptitle,
-                                  legend = maplegend,
-                                  state_zoom = statezoomfinal) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
+    my_map <- zip_choropleth(dat2, 
+                   state_zoom= statezoomfinal,
+                   title=maptitle,
+                   num_colors = 7,
+                   legend=maplegend) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
     }
 
   return(my_map)
