@@ -142,22 +142,27 @@ shinyUI(
                           tabPanel("Mapping",
                                    h3("State/County Mapping", align= "center"),
                                    br(),
-                                   h5("Directions: The CSV file must contain the county fips, zip fips, or state name (if developing state-level estimates) as the first column.  The second column must be the value to plot"),
-                                   radioButtons("maptype", label = h4("Choose your map type:"),
-                                                choices = list("State" = "state", "County" = "county", "Zip" = "zip"), 
-                                                selected = NULL),
+                                   h4("Directions: The CSV file must contain the county fips, zip fips, or state name (if developing state-level estimates) as the first column.  The second column must be the value to plot"),
+                                   fluidRow(
+                                     column(4, radioButtons("maptype", label = h3("Choose your map type:"),
+                                              choices = list("State" = "state", "County" = "county", "Zip" = "zip"), 
+                                              selected = NULL)
+                                            ),
+                                     column(4, radioButtons("mapcolor", label = h3("Choose a Color"),
+                                              choices = list("White - Blue" = "Blues", "Yellow - Red" = "YlOrRd", "Spectral" = "Spectral", "White - Green" = "Greens"), 
+                                              selected = NULL))
+                                   ),
                                    br(),
-                                   textInput("maptitle", label=h4("Title of the Map:"), value = "", width = NULL, placeholder = NULL),
-                                   textInput("maplegend", label=h4("Legend Title:"), value = "", width = NULL, placeholder = NULL),
-                                   radioButtons("mapcolor", label = h4("Choose a Color"),
-                                                choices = list("White - Blue" = "Blues", "Yellow - Red" = "YlOrRd", "Spectral" = "Spectral", "White - Green" = "Greens"), 
-                                                selected = NULL),
-                                   textInput("statezoom", label = h4("States to Zoom Into (seperated by commas)"), value = ""),
+                                   fluidRow(
+                                     column(4, textInput("maptitle", label=h3("Title of the Map:"), value = "", width = NULL, placeholder = NULL)
+                                            ),
+                                     column(4, textInput("maplegend", label=h3("Legend Title:"), value = "", width = NULL, placeholder = NULL)
+                                           )
+                                   ),
+                                   textInput("statezoom", label = h5("States to zoom Into (seperated by commas). If left blank will create a map of entire continental US"), value = ""),
                                    wellPanel("Upload a .CSV",
                                              fileInput('mapcsv', 'Choose CSV File',
                                                        accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv'))
-                                             
-
                                    ),
                                    br(),
                                    plotOutput("maps")
