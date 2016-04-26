@@ -364,8 +364,7 @@ makemap <- reactive({
     }
     
     names(dat2) <- c("region", "value")
-    dat2$region <- as.character(dat2$region)
-    dat2$value <- as.numeric(dat2$value)
+
     
     color <- as.character(input$mapcolor)
     maptitle <- as.character(input$maptitle)
@@ -381,18 +380,24 @@ makemap <- reactive({
 
     
   if(input$maptype == 'state'){
+  dat2$region <- as.character(dat2$region)
+  dat2$value <- as.numeric(dat2$value)
   my_map <- state_choropleth(dat2,
                      title = maptitle,
                      legend = maplegend,
                      zoom = statezoomfinal) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
   }
   if(input$maptype == 'county'){
+    dat2$region <- as.numeric(dat2$region)
+    dat2$value <- as.numeric(dat2$value)
     my_map <- county_choropleth(dat2,
                                 title = maptitle,
                                 legend = maplegend,
                                 state_zoom = statezoomfinal) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
   }
   if(input$maptype == 'zip'){
+    dat2$region <- as.character(dat2$region)
+    dat2$value <- as.numeric(dat2$value)
     my_map <- zip_choropleth(dat2, 
                    state_zoom= statezoomfinal,
                    title=maptitle,
