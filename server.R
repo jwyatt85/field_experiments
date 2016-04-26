@@ -384,6 +384,16 @@ makemap <- reactive({
                                 num_colors = 5,
                                 state_zoom = statezoom) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
   }
+# NEED TO ADD STATE ZOOM IN THE UI
+#   #if(input$maptype == 'zip'){
+#       my_map <- zip_choropleth(dat2,
+#                                   title = maptitle,
+#                                   legend = maplegend,
+#                                   num_colors = 7,
+#                                   state_zoom = statezoom) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
+#     }
+    
+    
   return(my_map)
     }})
 

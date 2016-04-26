@@ -20,6 +20,7 @@ library(rgeos)
 # library(UScensus2010)
 library(RColorBrewer)
 library(choroplethr)
+library(choroplethrZip)
 
 
 #function that returns the span MDE
