@@ -365,35 +365,37 @@ makemap <- reactive({
     
     names(dat2) <- c("region", "value")
     color <- as.character(input$mapcolor)
-    statezoom <- tolower(state.name)
-    statezoom <- statezoom[-c(grep("alaska|hawaii", statezoom))]
     maptitle <- as.character(input$maptitle)
     maplegend <- as.character(input$maplegend)
+
+  if(input$statezoom == ""){
+  statezoomfinal <- tolower(state.name)
+  statezoomfinal <- statezoomfinal[-c(grep("alaska|hawaii", statezoomfinal))]
+  }else{
+  statezoomfinal <- tolower(unlist(strsplit(input$statezoom, "[,]")))
+  statezoomfinal <- stri_replace_all_fixed(statezoomfinal, " ", "")
+  }
+
     
   if(input$maptype == 'state'){
   my_map <- state_choropleth(dat2,
                      title = maptitle,
                      legend = maplegend,
-                     num_colors = 5,
-                     zoom = statezoom) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
+                     zoom = statezoomfinal) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
   }
   if(input$maptype == 'county'){
     my_map <- county_choropleth(dat2,
                                 title = maptitle,
                                 legend = maplegend,
-                                num_colors = 5,
-                                state_zoom = statezoom) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
+                                state_zoom = statezoomfinal) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
   }
-# NEED TO ADD STATE ZOOM IN THE UI
-#   #if(input$maptype == 'zip'){
-#       my_map <- zip_choropleth(dat2,
-#                                   title = maptitle,
-#                                   legend = maplegend,
-#                                   num_colors = 7,
-#                                   state_zoom = statezoom) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
-#     }
-    
-    
+  if(input$maptype == 'zip'){
+      my_map <- zip_choropleth(dat2,
+                                  title = maptitle,
+                                  legend = maplegend,
+                                  state_zoom = statezoomfinal) + scale_fill_brewer(name = maplegend, palette = color, drop=FALSE)
+    }
+
   return(my_map)
     }})
 

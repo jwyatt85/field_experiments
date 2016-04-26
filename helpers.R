@@ -21,6 +21,7 @@ library(rgeos)
 library(RColorBrewer)
 library(choroplethr)
 library(choroplethrZip)
+library(stringi)
 
 
 #function that returns the span MDE

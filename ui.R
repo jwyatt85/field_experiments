@@ -154,7 +154,10 @@ shinyUI(
                                                 selected = NULL),
                                    wellPanel("Upload a .CSV",
                                              fileInput('mapcsv', 'Choose CSV File',
-                                                       accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv'))
+                                                       accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv')),
+                                             
+                                             # Copy the line below to make a text input box
+                                             textInput("statezoom", label = h4("States to Zoom Into (seperated by commas)"), value = "")
                                    ),
                                    br(),
                                    plotOutput("maps")
