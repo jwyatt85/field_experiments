@@ -1,6 +1,6 @@
 ### Application for Political Field Experiments 
 
-## Functions:
+# Functions:
 * Calculates the ITT/CACE for a randomized controlled experiment
 * Randomizer: 
     + Assign individuals (with unique ID) into treatment/control (or placebo) 
