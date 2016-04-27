@@ -11,7 +11,7 @@
 * Calculates the power - minimial detectable effect - of an experiment (pre-experimental analysis)
 * Added chropleth mapping abilities for state, county, and zip codes
 
-![alt tag]()
+![alt tag](https://raw.githubusercontent.com/jwyatt85/field_experiments/data/mapping_pic.png)
 
 
 
