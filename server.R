@@ -375,7 +375,10 @@ makemap <- reactive({
   statezoomfinal <- statezoomfinal[-c(grep("alaska|hawaii", statezoomfinal))]
   }else{
   statezoomfinal <- tolower(unlist(strsplit(input$statezoom, "[,]")))
-  statezoomfinal <- as.character(stri_replace_all_fixed(statezoomfinal, " ", ""))
+  
+  trim <- function (x) gsub("^\\s+|\\s+$", "", x) # function to remove leading or trailing spaces caused by the unlist(strsplit())
+  
+  statezoomfinal <- trim(statezoomfinal)
   }
 
     
