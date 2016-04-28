@@ -412,6 +412,17 @@ makemap <- reactive({
     }})
 
 
+output$Download = downloadHandler(
+  filename = 'my_map.png',
+  content = function(file) {
+    device <- function(..., width, height) {
+      grDevices::png(..., width = width, height = height,
+                     res = 300, units = "in")
+    }
+    ggsave(file, plot = makemap(), device = device)
+  })
+
+
 
 # Sub-group analysis
 # Upload a Dataset

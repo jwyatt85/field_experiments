@@ -165,7 +165,8 @@ shinyUI(
                                                        accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv'))
                                    ),
                                    br(),
-                                   plotOutput("maps")
+                                   plotOutput("maps"),
+                                   downloadButton('Download')
                           )
                         )
               )  
