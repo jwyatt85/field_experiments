@@ -411,7 +411,7 @@ makemap <- reactive({
   return(my_map)
     }})
 
-
+#map download section
 output$Download = downloadHandler(
   filename = 'my_map.png',
   content = function(file) {
