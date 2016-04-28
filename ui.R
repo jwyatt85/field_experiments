@@ -166,7 +166,9 @@ shinyUI(
                                    ),
                                    br(),
                                    plotOutput("maps"),
-                                   downloadButton('Download')
+                                   downloadButton('Download'),
+                                   hr(),
+                                   br()
                           )
                         )
               )  
