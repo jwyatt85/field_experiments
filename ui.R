@@ -8,7 +8,7 @@ shinyUI(
                                     accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv')),
                           uiOutput("outcome"),
                           uiOutput("contact"),
-                          uiOutput("treatment")
+                          uiOutput("treatment") 
                 ),
                 
                 wellPanel("Summary of Input",
