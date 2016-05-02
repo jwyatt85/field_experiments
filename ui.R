@@ -169,7 +169,8 @@ shinyUI(
                                    downloadButton('Download'),
                                    hr(),
                                    br()
-                          )
+                          ),
+                          tabPanel("Predictive Analytics")
                         )
               )  
       )
