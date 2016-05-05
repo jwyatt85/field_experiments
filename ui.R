@@ -176,7 +176,7 @@ shinyUI(
                           ## Maybe we should add a fluid frame here with specific drop downs for each model (yes?)
                           fluidRow(
                             column(6, radioButtons("statmodel", label=h3("Choose a statistical modeling technique:"), 
-                                                   choices = list("Mixed-Effects Logistic", "Non-ME Logistic", "OLS Regression", "Regression Trees", "Neural Nets", "Random Forest")))
+                                                   choices = list("Mixed-Effects Logistic", "Non-ME Logistic", "OLS Regression", "Regression Trees")))
                           )
                         )
               ))  
