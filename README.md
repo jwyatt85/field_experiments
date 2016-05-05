@@ -9,6 +9,7 @@
     + Allows a user to download the randomized list
     + Allows a user to set a proportion to treatment/control (Option only works for SRA currently)
 * Calculates the power - minimial detectable effect - of an experiment (pre-experimental analysis)
+* Adding Statistical modeling capabilities: Mixed effects, logistic regression, OLS, and Regression trees.  Decided to skip NNets and RandomF
 * Added chropleth mapping abilities for state, county, and zip codes:
 
 
