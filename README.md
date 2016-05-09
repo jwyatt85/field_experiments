@@ -12,10 +12,12 @@
 * Adding Statistical modeling capabilities: Mixed effects, logistic regression, OLS, and Regression trees.  Decided to skip NNets and RandomF
 * Added chropleth mapping abilities for state, county, and zip codes (removed alaska and hawaii - nobody does anything with those states anyways xD):
 
+#### Some screenshots: 
 
+Example Mapping:
 ![alt tag](https://github.com/jwyatt85/field_experiments/blob/master/data/mapping_pic.png)
-
-!![alt tag](https://github.com/jwyatt85/field_experiments/blob/master/data/MDE.png)
+Example MDE
+![alt tag](https://github.com/jwyatt85/field_experiments/blob/master/data/MDE.png)
 
 
 
