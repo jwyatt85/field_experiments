@@ -174,12 +174,19 @@ shinyUI(
                           h3("Statistical Modeling", align = "center"),
                           br(),
                           ## Maybe we should add a fluid frame here with specific drop downs for each model (yes?)
-                          fluidRow(
+                          fluidRow(fileInput('statmodeldata', 'Choose CSV File',
+                                             accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv')),
+                                   radioButtons("diagnostics", label = h3("Diagnostics?"),
+                                                choices = list("Yes" = 1, "No" = 2), 
+                                                selected = NULL),
+                                   br(),
+                                   
                             column(4, selectInput("statmodels", label = h4("Choose a statistical model"), 
                                                   choices = list("Mixed-effects Logistic Regression" = 1, "Logistic Regression" = 2, "OLS regression" = 3), 
                                                   selected = 3)),
                             column(8,
-                                   textInput("formula", label = h4("Model Formula"), value = "y ~ (1|age) + (1|gender) + party", width = 600))
+                                   textInput("formula", label = h4("Model Formula"), value = "y ~ (1|age) + (1|gender) + party", width = 600)),
+                            br()
                           )
                         )
               ))  
