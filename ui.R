@@ -159,7 +159,7 @@ shinyUI(
                                      column(4, textInput("maplegend", label=h3("Legend Title:"), value = "", width = NULL, placeholder = NULL)
                                            )
                                    ),
-                                   textInput("statezoom", label = h5("States to zoom Into (seperated by commas). If left blank will create a map of entire continental US (Not recommended using Zip)"), value = ""),
+                                   textInput("statezoom", label = h5("States to zoom Into (seperated by commas). If left blank will create a map of entire continental US (not recommended using Zip)"), value = ""),
                                    wellPanel("Upload a .CSV",
                                              fileInput('mapcsv', 'Choose CSV File',
                                                        accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv'))
