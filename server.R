@@ -234,7 +234,7 @@ makeLogitPlot <- reactive({
 
     sjp.glm(my.logit.for.plot, 
             axisLabels.y = predlab,
-            type = "prob")
+            type = "eff") # changed to eff instead of prob
 })
 
 # Create Plot
