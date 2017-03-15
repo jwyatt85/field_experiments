@@ -21,7 +21,7 @@ shinyServer(function(input, output) {
     df <- data.frame(Y, D, Z = ifelse(Z==1, "Treatment", "Control"))
     
     group_by(df, Z) %>% 
-      summarize(y_bar = mean(Y),
+      dplyr::summarize(y_bar = mean(Y),
                 N = n(),
                 se = sd(Y)/sqrt(N),
                 ui = y_bar + 1.96*se,
@@ -135,13 +135,12 @@ shinyServer(function(input, output) {
       if(!is_binary(D)) stop("The contact variable can only include 0's and 1's.")
       if(!is_binary(Z)) stop("The treatment variable can only include 0's and 1's.")
       
-      xtable(statistical_results_2(Y,D,Z), label="Test_table")
+      statistical_results_2(Y,D,Z)
       
     }
   })
   
-  output$out_table <- renderTable(
-    digits=3,{
+  output$out_table <- renderTable({
       makeTable()
     })
 

@@ -56,7 +56,7 @@ shinyUI(
                                    #h3("Color of Plot"),
                                    #radioButtons("color","Select Color", choices = c("blue", "green", "purple"), selected = "blue" ),
                                    br(),
-                                   h3("Statistical Results", align = "center"),
+                                   h3("Statistical Results"),
                                    tableOutput("out_table")
                           ),
                           tabPanel("Randomized List",
